@@ -1,5 +1,4 @@
-# MangaDex
-[![Build Status](https://travis-ci.org/wolf-adam/MangaDex.svg?branch=master)](https://travis-ci.org/wolf-adam/MangaDex)
+# MangaDex [![Build Status](https://travis-ci.org/wolf-adam/MangaDex.svg?branch=master)](https://travis-ci.org/wolf-adam/MangaDex)
 Mobile sofware laboratory assignment
 
 ## Language:
