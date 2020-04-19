@@ -1,9 +1,9 @@
-package com.example.mangadex.ui.main
+package com.example.mangadex.ui.chapter
 
 import com.example.mangadex.ui.Presenter
 
-object MainPresenter : Presenter<MainScreen>() {
-    override fun attachScreen(screen: MainScreen) {
+object ChapterPresenter : Presenter<ChapterScreen>() {
+    override fun attachScreen(screen: ChapterScreen) {
         super.attachScreen(screen)
     }
 
