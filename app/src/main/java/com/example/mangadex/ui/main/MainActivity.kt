@@ -3,22 +3,29 @@ package com.example.mangadex.ui.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mangadex.R
+import com.example.mangadex.mainInjector
+import com.example.mangadex.ui.chapter.ChapterPresenter
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainScreen {
+    @Inject
+    lateinit var mainPresenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        mainInjector.inject(this)
+        mainPresenter.attachScreen(this)
     }
 
     override fun onStart() {
         super.onStart()
-        MainPresenter.attachScreen(this)
+        mainPresenter.attachScreen(this)
     }
 
     override fun onStop() {
         super.onStop()
-        MainPresenter.detachScreen()
+        mainPresenter.detachScreen()
     }
 
     override fun updateMainList() {

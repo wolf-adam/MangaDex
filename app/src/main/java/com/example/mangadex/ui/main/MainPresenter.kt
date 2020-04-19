@@ -1,8 +1,10 @@
 package com.example.mangadex.ui.main
 
+import com.example.mangadex.interactor.MainInteractor
 import com.example.mangadex.ui.Presenter
+import javax.inject.Inject
 
-object MainPresenter : Presenter<MainScreen>() {
+class MainPresenter @Inject constructor(private val mainInteractor: MainInteractor) : Presenter<MainScreen>() {
     override fun attachScreen(screen: MainScreen) {
         super.attachScreen(screen)
     }
