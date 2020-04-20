@@ -15,7 +15,6 @@ class ChapterActivity : AppCompatActivity(), ChapterScreen {
         super.onCreate(savedInstanceState, persistentState)
         setContentView(R.layout.activity_chapter)
         chapterInjector.inject(this)
-        chapterPresenter.attachScreen(this)
     }
 
     override fun onStart() {
