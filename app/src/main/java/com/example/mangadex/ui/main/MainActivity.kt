@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mangadex.R
 import com.example.mangadex.mainInjector
-import com.example.mangadex.ui.chapter.ChapterPresenter
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainScreen {
