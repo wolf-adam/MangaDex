@@ -21,7 +21,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideArtistsApi(client: OkHttpClient): MangaApi {
+    fun provideMangaApi(client: OkHttpClient): MangaApi {
         val retrofit = Retrofit.Builder()
             .client(client)
             .baseUrl(NetworkConfig.API_ENDPOINT_ADDRESS)
