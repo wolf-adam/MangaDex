@@ -1,0 +1,20 @@
+package com.example.mangadex.network
+
+import com.example.mangadex.model.CharacterResult
+import com.example.mangadex.model.MangaResult
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
+
+interface MangaApi {
+    @GET("{username}/mangalist/all/")
+    override fun getMangaList( username: String, order_by: String): Call<List<MangaResult>>{
+        TODO("Not implemented")
+    }
+
+    @GET("manga/{mal_id}/characters")
+    override fun getCharacters(mal_id: String): Call<List<CharacterResult>>{
+        TODO("Not implemented")
+    }
+}

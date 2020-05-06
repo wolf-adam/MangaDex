@@ -1,10 +1,22 @@
 package com.example.mangadex.ui.main
 
 import com.example.mangadex.interactor.MainInteractor
+import com.example.mangadex.model.DummyContent
 import com.example.mangadex.ui.Presenter
+import java.util.concurrent.Executor
 import javax.inject.Inject
 
-class MainPresenter @Inject constructor(private val mainInteractor: MainInteractor) : Presenter<MainScreen>() {
+class MainPresenter @Inject constructor(private val executor: Executor, private val mainInteractor: MainInteractor) : Presenter<MainScreen>() {
+
+    fun showDummyMang(item: DummyContent) {
+        this.screen?.showDummyMangas(item)
+    }
+
+    fun getDummyMang(item: DummyContent) {
+        showDummyMang(mainInteractor.getDummyMangas(item))
+    }
+
+    /*
     override fun attachScreen(screen: MainScreen) {
         super.attachScreen(screen)
     }
@@ -16,4 +28,5 @@ class MainPresenter @Inject constructor(private val mainInteractor: MainInteract
     fun refreshTriggered() {
         TODO()
     }
+     */
 }

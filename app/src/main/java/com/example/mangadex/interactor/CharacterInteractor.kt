@@ -2,28 +2,28 @@ package com.example.mangadex.interactor
 
 import android.util.Log
 import com.example.mangadex.database.MangaDao
-import com.example.mangadex.interactor.event.GetMangaEvent
+import com.example.mangadex.interactor.event.GetCharacterEvent
 import com.example.mangadex.model.DummyContent
 import com.example.mangadex.network.NetworkConfig
 import com.example.mangadex.network.MangaApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
-class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
+class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
 
     //Dummy
-    fun getDummyMangas(item: DummyContent): DummyContent {
+    fun getDummyCharacters(item: DummyContent): DummyContent {
         return item
     }
 
     /*
-    fun getMangas(mangaId: String) {
+    fun getCharacters(mangaID: String) {
 
-        val event = GetCoordinatesByCityEvent()
+        val event = GetCharacterEvent()
 
         try {
-            val coordinatesQueryCall = mangaApi.getCoordinatesByCity(cityName, NetworkConfig.API_KEY)
-            val response = coordinatesQueryCall.execute()
+            val characterQueryCall = mangaApi.getCharacters(mangaID);
+            val response = characterQueryCall.execute()
             Log.d("Response", response.body().toString())
 
             if (response.code() != 200) {
@@ -31,10 +31,9 @@ class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private
             }
 
             event.code = response.code()
-            event.cityName = response.body()?.cityName
-            event.lat = response.body()?.lat
-            event.lon = response.body()?.lon
-            event.temperature = response.body()?.temperature
+            event.character_name = response.body()?.character_name
+            event.character_url = response.body()?.character_url
+            event.character_image_url = response.body()?.character_image_url
 
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
@@ -42,5 +41,5 @@ class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private
             EventBus.getDefault().post(event)
         }
     }
-    */
+     */
 }

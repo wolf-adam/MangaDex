@@ -1,5 +1,7 @@
 package com.example.mangadex.interactor
 
+import com.example.mangadex.database.MangaDao
+import com.example.mangadex.network.MangaApi
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -8,9 +10,9 @@ import javax.inject.Singleton
 class InteractorModule {
     @Provides
     @Singleton
-    fun provideChapterInteractor() = ChapterInteractor()
+    fun provideCharacterInteractor(mangaApi: MangaApi, mangaDao: MangaDao) = CharacterInteractor(mangaApi, mangaDao)
 
     @Provides
     @Singleton
-    fun provideMainInteractor() = MainInteractor()
+    fun provideMainInteractor(mangaApi: MangaApi, mangaDao: MangaDao) = MainInteractor(mangaApi, mangaDao)
 }
