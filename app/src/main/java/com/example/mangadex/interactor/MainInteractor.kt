@@ -9,7 +9,7 @@ import com.example.mangadex.network.MangaApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
-class MainInteractor @Inject constructor(mangaApi: MangaApi, mangaDao: MangaDao) {
+class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
 
     //Dummy
     fun getDummyMangas(item: DummyContent): DummyContent {
