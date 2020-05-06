@@ -1,0 +1,23 @@
+package com.example.mangadex.database
+
+import com.example.mangadex.database.entities.MangaEntity
+import com.example.mangadex.database.entities.CharacterEntity
+
+@Dao
+interface MangaDao {
+    override fun getAllMangas(): List<MangaEntity> {
+        TODO("Not yet implemented")
+    }
+
+    override fun addManga(projectEntity: MangaEntity) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getAllCharacters(): List<CharacterEntity> {
+        TODO("Not yet implemented")
+    }
+
+    override fun addCharacter(taskEntity: CharacterEntity) {
+        TODO("Not yet implemented")
+    }
+}
