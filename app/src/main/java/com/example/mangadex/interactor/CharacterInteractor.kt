@@ -1,13 +1,13 @@
 package com.example.mangadex.interactor
 
 import android.util.Log
-import com.example.mangadex.interactor.event.GetMangaEvent
+import com.example.mangadex.interactor.event.GetCharacterEvent
 import com.example.mangadex.network.NetworkConfig
 import com.example.mangadex.network.MangaApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
-class MainInteractor @Inject constructor(private var mangaApi: MangaApi) {
+class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi) {
 
     /*
     fun getCoordinates(cityName: String) {
@@ -34,6 +34,5 @@ class MainInteractor @Inject constructor(private var mangaApi: MangaApi) {
             event.throwable = e
             EventBus.getDefault().post(event)
         }
-    }
-    */
+    }*/
 }

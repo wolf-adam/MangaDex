@@ -2,7 +2,7 @@ package com.example.mangadex
 
 import android.app.Activity
 
-val Activity.chapterInjector: MainApplicationComponent
+val Activity.characterInjector: MainApplicationComponent
     get() {
         return (this.applicationContext as MainApplication).injector
     }

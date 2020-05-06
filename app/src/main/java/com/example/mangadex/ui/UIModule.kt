@@ -1,9 +1,9 @@
 package com.example.mangadex.ui
 
 import android.content.Context
-import com.example.mangadex.interactor.ChapterInteractor
+import com.example.mangadex.interactor.CharacterInteractor
 import com.example.mangadex.interactor.MainInteractor
-import com.example.mangadex.ui.chapter.ChapterPresenter
+import com.example.mangadex.ui.character.CharacterPresenter
 import com.example.mangadex.ui.main.MainPresenter
 import dagger.Module
 import dagger.Provides
@@ -16,7 +16,7 @@ class UIModule (private val context: Context){
 
     @Provides
     @Singleton
-    fun cityPresenter(chapterInteractor: ChapterInteractor) = ChapterPresenter(chapterInteractor)
+    fun cityPresenter(characterInteractor: CharacterInteractor) = CharacterPresenter(characterInteractor)
 
     @Provides
     @Singleton

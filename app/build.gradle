@@ -48,6 +48,9 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     kapt 'androidx.room:room-compiler:2.2.5'
 
+    // For events
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
     // Dagger2 from
     // https://stackoverflow.com/questions/43756498/dagger-2-component-not-generated?fbclid=IwAR03C_mmX9W79C4-gRS671W0TNpFsKm0rYSmQ-Su5BwPDgxeV_w4mqI61UY
     api 'com.google.dagger:dagger:2.24'

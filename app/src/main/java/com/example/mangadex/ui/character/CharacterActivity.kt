@@ -1,38 +1,38 @@
-package com.example.mangadex.ui.chapter
+package com.example.mangadex.ui.character
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import com.example.mangadex.R
-import com.example.mangadex.chapterInjector
+import com.example.mangadex.characterInjector
 import javax.inject.Inject
 
-class ChapterActivity : AppCompatActivity(), ChapterScreen {
+class CharacterActivity : AppCompatActivity(), CharacterScreen {
     @Inject
-    lateinit var chapterPresenter: ChapterPresenter
+    lateinit var characterPresenter: CharacterPresenter
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.activity_chapter)
-        chapterInjector.inject(this)
-        chapterPresenter.attachScreen(this)
+        setContentView(R.layout.activity_character)
+        characterInjector.inject(this)
+        characterPresenter.attachScreen(this)
     }
 
     override fun onStart() {
         super.onStart()
-        chapterPresenter.attachScreen(this)
+        characterPresenter.attachScreen(this)
     }
 
     override fun onStop() {
         super.onStop()
-        chapterPresenter.detachScreen()
+        characterPresenter.detachScreen()
     }
 
-    override fun showChapterCover(cover: Int) {
+        override fun showCharacterName(name: String) {
         TODO("Not yet implemented")
     }
 
-    override fun showChapterName(name: String) {
+    override fun showCharacterCover(cover: Int) {
         TODO("Not yet implemented")
     }
 
