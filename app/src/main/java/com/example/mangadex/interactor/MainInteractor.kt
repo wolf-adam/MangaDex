@@ -17,7 +17,7 @@ class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private
     }
 
     /*
-    fun getCoordinates(cityName: String) {
+    fun getMangas(mangaId: String) {
 
         val event = GetCoordinatesByCityEvent()
 
