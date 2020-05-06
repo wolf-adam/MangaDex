@@ -1,13 +1,20 @@
 package com.example.mangadex.interactor
 
 import android.util.Log
+import com.example.mangadex.database.MangaDao
 import com.example.mangadex.interactor.event.GetCharacterEvent
+import com.example.mangadex.model.DummyContent
 import com.example.mangadex.network.NetworkConfig
 import com.example.mangadex.network.MangaApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
-class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi) {
+class CharacterInteractor @Inject constructor(mangaApi: MangaApi, mangaDao: MangaDao) {
+
+    //Dummy
+    fun getDummyCharacters(item: DummyContent): DummyContent {
+        return item
+    }
 
     /*
     fun getCoordinates(cityName: String) {

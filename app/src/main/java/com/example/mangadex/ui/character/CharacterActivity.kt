@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import com.example.mangadex.R
 import com.example.mangadex.characterInjector
+import com.example.mangadex.model.DummyContent
 import javax.inject.Inject
 
 class CharacterActivity : AppCompatActivity(), CharacterScreen {
@@ -28,7 +29,7 @@ class CharacterActivity : AppCompatActivity(), CharacterScreen {
         characterPresenter.detachScreen()
     }
 
-        override fun showCharacterName(name: String) {
+    override fun showCharacterName(name: String) {
         TODO("Not yet implemented")
     }
 
