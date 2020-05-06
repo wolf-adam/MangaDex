@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class MangaEntity (
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val mal_id: Int,
+    val mal_id: Int,    // MyAnimeList ID, any manga has this unique ID
     val title: String,
     val url: String,
     val image_url: String,
