@@ -48,4 +48,13 @@ class CharacterActivity : AppCompatActivity(), CharacterScreen {
     override fun showAvailableChapters() {
         TODO("Not yet implemented")
     }
+
+    override fun showNetworkError(msg: String) {
+        TODO("Not yet implemented")
+    }
+
+    // Dummy from screen
+    override fun showDummyCharacters(item: DummyContent) {
+        TODO("Not yet implemented")
+    }
 }

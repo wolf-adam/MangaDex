@@ -9,7 +9,7 @@ import com.example.mangadex.network.MangaApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
-class CharacterInteractor @Inject constructor(mangaApi: MangaApi, mangaDao: MangaDao) {
+class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
 
     //Dummy
     fun getDummyCharacters(item: DummyContent): DummyContent {
@@ -17,13 +17,13 @@ class CharacterInteractor @Inject constructor(mangaApi: MangaApi, mangaDao: Mang
     }
 
     /*
-    fun getCoordinates(cityName: String) {
+    fun getCharacters(mangaID: String) {
 
-        val event = GetCoordinatesByCityEvent()
+        val event = GetCharacterEvent()
 
         try {
-            val coordinatesQueryCall = weatherApi.getCoordinatesByCity(cityName, NetworkConfig.API_KEY)
-            val response = coordinatesQueryCall.execute()
+            val characterQueryCall = mangaApi.getCharacters(mangaID);
+            val response = characterQueryCall.execute()
             Log.d("Response", response.body().toString())
 
             if (response.code() != 200) {
@@ -31,15 +31,15 @@ class CharacterInteractor @Inject constructor(mangaApi: MangaApi, mangaDao: Mang
             }
 
             event.code = response.code()
-            event.cityName = response.body()?.cityName
-            event.lat = response.body()?.lat
-            event.lon = response.body()?.lon
-            event.temperature = response.body()?.temperature
+            event.character_name = response.body()?.character_name
+            event.character_url = response.body()?.character_url
+            event.chaacter_image_url = response.body()?.character_image_url
 
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
             event.throwable = e
             EventBus.getDefault().post(event)
         }
-    }*/
+    }
+     */
 }

@@ -12,7 +12,7 @@ import javax.inject.Inject
 class MainInteractor @Inject constructor(mangaApi: MangaApi, mangaDao: MangaDao) {
 
     //Dummy
-    fun getDummyCoordinates(item: DummyContent): DummyContent {
+    fun getDummyMangas(item: DummyContent): DummyContent {
         return item
     }
 

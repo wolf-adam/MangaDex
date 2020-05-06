@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mangadex.R
 import com.example.mangadex.mainInjector
+import com.example.mangadex.model.DummyContent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainScreen {
@@ -29,5 +30,14 @@ class MainActivity : AppCompatActivity(), MainScreen {
 
     override fun updateMainList() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showNetworkError(msg: String) {
+        TODO("Not yet implemented")
+    }
+
+    // Dummy from screen
+    override fun showDummyMangas(item: DummyContent) {
+        TODO("Not yet implemented")
     }
 }

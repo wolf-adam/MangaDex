@@ -1,5 +1,7 @@
 package com.example.mangadex.ui.character
 
+import com.example.mangadex.model.DummyContent
+
 interface CharacterScreen {
     fun showCharacterName(name: String)
 
@@ -10,4 +12,9 @@ interface CharacterScreen {
     fun showDetail(detail: String)
 
     fun showAvailableChapters()
+
+    fun showNetworkError(msg: String)
+
+    //Dummy
+    fun showDummyCharacters(item: DummyContent)
 }
