@@ -19,5 +19,5 @@ interface MangaDao {
     fun getAllCharacters(): List<CharacterEntity>
 
     @Insert(onConflict = REPLACE)
-    fun addCharacter(taskEntity: CharacterEntity)
+    fun addCharacters(taskEntity: CharacterEntity)
 }

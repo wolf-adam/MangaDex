@@ -22,7 +22,7 @@ class MainInteractor @Inject constructor(mangaApi: MangaApi, mangaDao: MangaDao)
         val event = GetCoordinatesByCityEvent()
 
         try {
-            val coordinatesQueryCall = weatherApi.getCoordinatesByCity(cityName, NetworkConfig.API_KEY)
+            val coordinatesQueryCall = mangaApi.getCoordinatesByCity(cityName, NetworkConfig.API_KEY)
             val response = coordinatesQueryCall.execute()
             Log.d("Response", response.body().toString())
 

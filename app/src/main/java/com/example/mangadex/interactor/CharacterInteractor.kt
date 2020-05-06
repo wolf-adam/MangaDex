@@ -33,7 +33,7 @@ class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, pr
             event.code = response.code()
             event.character_name = response.body()?.character_name
             event.character_url = response.body()?.character_url
-            event.chaacter_image_url = response.body()?.character_image_url
+            event.character_image_url = response.body()?.character_image_url
 
             EventBus.getDefault().post(event)
         } catch (e: Exception) {

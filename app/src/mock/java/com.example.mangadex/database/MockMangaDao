@@ -17,7 +17,7 @@ interface MangaDao {
         TODO("Not yet implemented")
     }
 
-    override fun addCharacter(taskEntity: CharacterEntity) {
+    override fun addCharacters(taskEntity: CharacterEntity) {
         TODO("Not yet implemented")
     }
 }
