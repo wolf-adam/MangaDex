@@ -1,0 +1,116 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server MangaDex server. It is used on a Mobile  Software Developer project. Wait 4 seconds btween each request! You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/)."
+  version: "0.0.1"
+  title: "MangaDex"
+host: "api.jikan.moe"
+basePath: "/v3"
+tags:
+- name: "mangalist"
+  description: "Get all the mangas by a specific user, which he/she is reading now"
+- name: "manga"
+  description: "Get the characters from a specific manga"
+schemes:
+- "https"
+- "http"
+paths:
+  /user/{username}/mangalist/all:
+    get:
+      tags:
+      - "mangalist"
+      summary: "Get all mangas currently reading by user"
+      operationId: "getAllMangas"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "Specific MyAnimeList username"
+        required: true
+        type: "string"
+      - name: "order_by"
+        in: "query"
+        description: "By default: descending"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/MangaResult"
+        "400":
+          description: "Invalid MyAnimeList Username"
+  /manga/{mal_id}/characters:
+    get:
+      tags:
+      - "manga"
+      summary: "Get all characters from a specific manga"
+      operationId: "getAllCharacters"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "mal_id"
+        in: "path"
+        description: "MyAnimeList ID"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/CharacterResult"
+        "400":
+          description: "Invalid MyAnimeList ID"
+definitions:
+  MangaResult:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      mal_id:
+        type: "integer"
+        format: "int64"
+        example: 96792
+      title:
+        type: "string"
+        example: "Kimetsu no Yaiba"
+      url:
+        type: "string"
+        example: "https://myanimelist.net/manga/96792/Kimetsu_no_Yaiba"
+      image_url:
+        type: "string"
+        example: "https://cdn.myanimelist.net/images/manga/3/179023.jpg?s=d397a830b830411cd0e397c72ac3213b"
+      score_Num:
+        type: "integer"
+        format: "int64"
+        example: 10
+      total_chapter:
+        type: "integer"
+        format: "int64"
+        example: 204
+    xml:
+      name: "Manga"
+  CharacterResult:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      character_name:
+        type: "string"
+        example: "Nezuko, Kamado"
+      character_url:
+        type: "string"
+        example: "https://myanimelist.net/character/146157/Nezuko_Kamado"
+      chaacter_image_url:
+        type: "string"
+        example: "https://cdn.myanimelist.net/images/characters/15/384829.jpg"
+    xml:
+      name: "Characters"
