@@ -4,26 +4,27 @@ import android.util.Log
 import com.example.mangadex.database.MangaDao
 import com.example.mangadex.interactor.event.GetMangaEvent
 import com.example.mangadex.model.DummyContent
-import com.example.mangadex.network.NetworkConfig
 import com.example.mangadex.network.MangaApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
 class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
 
-    //Dummy
+    // Dummy
     fun getDummyMangas(item: DummyContent): DummyContent {
         return item
     }
 
-    /*
-    fun getMangas(mangaId: String) {
+    fun getMangaList(username: String) {
 
-        val event = GetCoordinatesByCityEvent()
+        val event = GetMangaEvent()
+
 
         try {
-            val coordinatesQueryCall = mangaApi.getCoordinatesByCity(cityName, NetworkConfig.API_KEY)
-            val response = coordinatesQueryCall.execute()
+            // TODO: Hardcoded,should get it from user on UI
+            // val mangasQueryCall = mangaApi.getMangaList(username, order_by)
+            val mangasQueryCall = mangaApi.getMangaList("W3lfmann", "desc")
+            val response = mangasQueryCall.execute()
             Log.d("Response", response.body().toString())
 
             if (response.code() != 200) {
@@ -31,10 +32,7 @@ class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private
             }
 
             event.code = response.code()
-            event.cityName = response.body()?.cityName
-            event.lat = response.body()?.lat
-            event.lon = response.body()?.lon
-            event.temperature = response.body()?.temperature
+            event.mangas = response.body()?.manga_request?.manga
 
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
@@ -42,5 +40,4 @@ class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private
             EventBus.getDefault().post(event)
         }
     }
-    */
 }

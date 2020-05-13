@@ -4,19 +4,18 @@ import android.util.Log
 import com.example.mangadex.database.MangaDao
 import com.example.mangadex.interactor.event.GetCharacterEvent
 import com.example.mangadex.model.DummyContent
-import com.example.mangadex.network.NetworkConfig
 import com.example.mangadex.network.MangaApi
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
 class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
 
-    //Dummy
+
+    // Dummy
     fun getDummyCharacters(item: DummyContent): DummyContent {
         return item
     }
 
-    /*
     fun getCharacters(mangaID: String) {
 
         val event = GetCharacterEvent()
@@ -31,9 +30,7 @@ class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, pr
             }
 
             event.code = response.code()
-            event.character_name = response.body()?.character_name
-            event.character_url = response.body()?.character_url
-            event.character_image_url = response.body()?.character_image_url
+            event.characters = response.body()?.character_request?.characters
 
             EventBus.getDefault().post(event)
         } catch (e: Exception) {
@@ -41,5 +38,4 @@ class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, pr
             EventBus.getDefault().post(event)
         }
     }
-     */
 }
