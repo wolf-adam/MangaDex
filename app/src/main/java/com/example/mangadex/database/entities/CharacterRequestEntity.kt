@@ -1,13 +1,14 @@
 package com.example.mangadex.database.entities
 
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "characters")
-data class CharacterEntity (
+@Entity(tableName = "characters_request")
+data class CharacterRequestEntity (
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val character_name: String,
-    val character_url: String,
-    val chaacter_image_url: String
+
+    @Embedded
+    val characters: CharactersEntity
 )
