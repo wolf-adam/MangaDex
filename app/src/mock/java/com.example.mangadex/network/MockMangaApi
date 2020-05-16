@@ -8,13 +8,11 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MangaApi {
-    @GET("{username}/mangalist/all/")
-    override fun getMangaList( username: String, order_by: String): Call<List<MangaResult>>{
+    override suspend fun getMangaList(username: String, order_by: String): List<MangaResult> {
         TODO("Not implemented")
     }
 
-    @GET("manga/{mal_id}/characters")
-    override fun getCharacters(mal_id: String): Call<List<CharacterResult>>{
+    override suspend fun getCharacters(mal_id: Long): List<CharacterResult> {
         TODO("Not implemented")
     }
 }

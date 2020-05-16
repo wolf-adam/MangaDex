@@ -9,15 +9,15 @@ interface MangaDao {
         TODO("Not yet implemented")
     }
 
-    override fun addManga(projectEntity: MangaEntity) {
+    override fun addManga(mangaEntity: MangaEntity) {
         TODO("Not yet implemented")
     }
 
-    override fun getAllCharacters(): List<CharacterEntity> {
+    override fun getCharactersByMangaID(id: Long): List<CharactersEntity> {
         TODO("Not yet implemented")
     }
 
-    override fun addCharacters(taskEntity: CharacterEntity) {
+    override fun addCharacters(characterRequestEntity: CharacterRequestEntity) {
         TODO("Not yet implemented")
     }
 }
