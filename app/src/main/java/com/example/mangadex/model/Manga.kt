@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Manga(
     @SerializedName("mal_id")
-    var mal_id: Int? = null,
+    var mal_id: Long? = null,
 
     @SerializedName("title")
     var title: String? = null,
@@ -46,16 +46,16 @@ data class Manga(
     var tags: String? = null,
 
     @SerializedName("start_date")
-    var start_date: Int? = null,
+    var start_date: String? = null,
 
     @SerializedName("end_date")
-    var end_date: Int? = null,
+    var end_date: String? = null,
 
     @SerializedName("read_start_date")
-    var read_start_date: Int? = null,
+    var read_start_date: String? = null,
 
     @SerializedName("read_end_date")
-    var read_end_date: Int? = null,
+    var read_end_date: String? = null,
 
     @SerializedName("days")
     var days: Int? = null,
