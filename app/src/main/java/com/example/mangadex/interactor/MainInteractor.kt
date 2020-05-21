@@ -1,46 +1,61 @@
 package com.example.mangadex.interactor
 
-import android.util.Log
 import com.example.mangadex.database.MangaDao
+import com.example.mangadex.database.entities.MangaEntity
+import com.example.mangadex.database.entities.UserEntity
 import com.example.mangadex.interactor.event.GetMangaEvent
-import com.example.mangadex.model.DummyContent
-import com.example.mangadex.network.NetworkConfig
+import com.example.mangadex.model.Manga
 import com.example.mangadex.network.MangaApi
-import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
 class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
 
-    //Dummy
-    fun getDummyMangas(item: DummyContent): DummyContent {
-        return item
+    suspend fun getMangas(username: String) : GetMangaEvent {
+
+        val event = GetMangaEvent()
+        val response = mangaApi.getMangaList(username, "desc")
+        event.mangas = response.manga
+
+        return event
     }
 
-    /*
-    fun getMangas(mangaId: String) {
+    suspend fun getAllManga() : List<Manga> {
 
-        val event = GetCoordinatesByCityEvent()
+        return mangaDao.getAllMangas().map {
+            Manga(it.mal_id, it.title, it.image_url, it.score_Num, it.total_chapter)
+        }
 
-        try {
-            val coordinatesQueryCall = mangaApi.getCoordinatesByCity(cityName, NetworkConfig.API_KEY)
-            val response = coordinatesQueryCall.execute()
-            Log.d("Response", response.body().toString())
+    }
 
-            if (response.code() != 200) {
-                throw Exception("Result code is not 200")
-            }
+    suspend fun getMangaByID(mal_id: Long) : Long {
 
-            event.code = response.code()
-            event.cityName = response.body()?.cityName
-            event.lat = response.body()?.lat
-            event.lon = response.body()?.lon
-            event.temperature = response.body()?.temperature
+        return mangaDao.getMangaByID(mal_id).mal_id
 
-            EventBus.getDefault().post(event)
-        } catch (e: Exception) {
-            event.throwable = e
-            EventBus.getDefault().post(event)
+    }
+
+    suspend fun saveMangas(mangas: List<Manga>?) {
+        mangas?.forEach {
+                try {
+                    mangaDao.addManga(
+                        MangaEntity(
+                            mal_id = it.mal_id!!,
+                            title = it.title!!,
+                            image_url = it.image_url!!,
+                            score_Num = it.score!!,
+                            total_chapter = it.total_chapters!!
+                        )
+                    )
+                } catch (e: java.lang.Exception) {
+                    e.printStackTrace()
+                }
         }
     }
-    */
+
+    suspend fun saveUser(username: String) {
+        try {
+            mangaDao.addUser(UserEntity(username=username))
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+    }
 }

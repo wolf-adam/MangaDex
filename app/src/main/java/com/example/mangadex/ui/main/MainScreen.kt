@@ -1,12 +1,10 @@
 package com.example.mangadex.ui.main
 
-import com.example.mangadex.model.DummyContent
+import com.example.mangadex.model.Manga
 
 interface MainScreen {
-    fun updateMainList()
 
-    fun showNetworkError(msg: String)
+    fun loadMangas(mangaList: List<Manga>)
 
-    //Dummy
-    fun showDummyMangas(item: DummyContent)
+    fun showDetails(mal_id: Long)
 }

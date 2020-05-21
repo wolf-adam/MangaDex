@@ -4,10 +4,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
-
 
 @Module
 class NetworkModule {
@@ -21,5 +18,5 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMangaApi(client: OkHttpClient): MangaApi = MockMangaApi()
+    fun provideMangaApi(): MangaApi = MockMangaApi()
 }

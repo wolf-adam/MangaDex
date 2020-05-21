@@ -2,20 +2,19 @@ package com.example.mangadex.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
+import com.example.mangadex.database.entities.CharactersEntity
 import com.example.mangadex.database.entities.MangaEntity
-import com.example.mangadex.database.entities.CharacterEntity
+import com.example.mangadex.database.entities.UserEntity
 
 @Database(
     exportSchema = false,
-    version = 1,
+    version = 8,
     entities = [
         MangaEntity::class,
-        CharacterEntity::class
+        CharactersEntity::class,
+        UserEntity::class
     ]
 )
 abstract class MangaDatabase : RoomDatabase() {
-
     abstract fun mangaDao(): MangaDao
-
 }

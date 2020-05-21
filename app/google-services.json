@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "632929890346",
+    "firebase_url": "https://mangadex-c2002.firebaseio.com",
+    "project_id": "mangadex-c2002",
+    "storage_bucket": "mangadex-c2002.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632929890346:android:1ba6f0ebed919f884e5353",
+        "android_client_info": {
+          "package_name": "com.example.mangadex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "632929890346-qul02rciq73l0sdfvice7p5as6l29l9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkow2JJsfsg33ZwqvuDFHcUvg_-fgGTWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632929890346-qul02rciq73l0sdfvice7p5as6l29l9m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
