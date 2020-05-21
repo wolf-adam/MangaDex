@@ -40,6 +40,10 @@ class CharacterActivity : AppCompatActivity(), CharacterScreen, CharacterAdapter
         MainScope().launch {
             characterPresenter.getList(mangaID!!)
         }
+
+        runOnUiThread{
+            Toast.makeText(this,"Loading characters...", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onStart() {
@@ -49,18 +53,12 @@ class CharacterActivity : AppCompatActivity(), CharacterScreen, CharacterAdapter
 
     override fun onStop() {
         super.onStop()
-
-        /*MainScope().launch {
-            characterPresenter.deleteCharacters()
-        }*/
-
         characterPresenter.detachScreen()
     }
 
     override fun loadCharacters(character_List: List<Character>) {
 
         runOnUiThread {
-            Toast.makeText(this,"Loading characters...", Toast.LENGTH_SHORT).show()
             characterAdapter.submitList(character_List.distinctBy {it.mal_id})
         }
     }

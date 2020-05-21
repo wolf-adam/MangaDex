@@ -20,14 +20,14 @@ class CharacterPresenter constructor(private val characterInteractor: CharacterI
         var list = characterInteractor.getCharacters(mangaID)
         list.characters?.let { characterInteractor.saveCharacters(mangaID, it) }
 
-        val result = characterInteractor.getAllCharacters()
+        val result = characterInteractor.getAllCharacters(mangaID)
 
         Log.d("getlist size",  result.size.toString())
 
         screen?.loadCharacters(result)
     }
-/*
+
     suspend fun deleteCharacters(){
         characterInteractor.deleteCharacters()
-    }*/
+    }
 }

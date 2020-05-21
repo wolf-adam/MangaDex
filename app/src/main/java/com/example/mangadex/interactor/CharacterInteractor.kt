@@ -19,9 +19,9 @@ class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, pr
         return event
     }
 
-    suspend fun getAllCharacters() : List<Character> {
+    suspend fun getAllCharacters(mangaID: Long) : List<Character> {
 
-        return mangaDao.getAllCharacters().map {
+        return mangaDao.getCharactersByMangaID(mangaID).map {
             Character(it.mal_id, it.url, it.image_url, it.name, it.role)
         }
 
@@ -46,7 +46,7 @@ class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, pr
         }
     }
 
-    /*suspend fun deleteCharacters(){
+    suspend fun deleteCharacters(){
         mangaDao.deleteCharacterDB()
-    }*/
+    }
 }

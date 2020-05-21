@@ -23,7 +23,7 @@ interface MangaDao {
     fun getAllCharacters(): List<CharactersEntity>
 
     @Query("SELECT * FROM characters WHERE manga_id=:id")
-    fun getCharactersByMangaID(id: Long): CharactersEntity
+    fun getCharactersByMangaID(id: Long): List<CharactersEntity>
 
     @Insert(onConflict = REPLACE)
     fun addCharacter(characterEntity: CharactersEntity)

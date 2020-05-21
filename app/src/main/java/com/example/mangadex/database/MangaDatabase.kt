@@ -8,7 +8,7 @@ import com.example.mangadex.database.entities.UserEntity
 
 @Database(
     exportSchema = false,
-    version = 6,
+    version = 8,
     entities = [
         MangaEntity::class,
         CharactersEntity::class,

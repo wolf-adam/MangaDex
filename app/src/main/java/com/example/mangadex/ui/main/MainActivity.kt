@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity(), MainScreen, MainAdapter.Listener {
  }
 
     private fun fabOnClickListener(view: View) {
-        fab.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.rotate_clockwise))
 
         with(AlertDialog.Builder(view.context)) {
             setTitle("Enter MAL Username")
@@ -64,6 +63,10 @@ class MainActivity : AppCompatActivity(), MainScreen, MainAdapter.Listener {
                 }
             }
             show()
+        }
+
+        runOnUiThread {
+            fab.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.rotate_clockwise))
         }
     }
 
@@ -84,9 +87,9 @@ class MainActivity : AppCompatActivity(), MainScreen, MainAdapter.Listener {
     }
 
     override fun loadMangas(mangaList: List<Manga>) {
-        fab.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.rotate_anticlockwise))
         runOnUiThread {
-            Toast.makeText(this,"Loading mangas...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Loading mangas...", Toast.LENGTH_SHORT).show()
+
             mainAdapter.submitList(mangaList.distinctBy {it.title})
         }
     }
