@@ -1,22 +1,12 @@
 package com.example.mangadex.ui.main
 
 import com.example.mangadex.interactor.MainInteractor
-import com.example.mangadex.model.DummyContent
 import com.example.mangadex.ui.Presenter
-import java.util.concurrent.Executor
-import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-class MainPresenter @Inject constructor(private val executor: Executor, private val mainInteractor: MainInteractor) : Presenter<MainScreen>() {
+class MainPresenter constructor(private val mainInteractor: MainInteractor) : Presenter<MainScreen>() {
 
-    fun showDummyMang(item: DummyContent) {
-        this.screen?.showDummyMangas(item)
-    }
-
-    fun getDummyMang(item: DummyContent) {
-        showDummyMang(mainInteractor.getDummyMangas(item))
-    }
-
-    /*
     override fun attachScreen(screen: MainScreen) {
         super.attachScreen(screen)
     }
@@ -25,8 +15,23 @@ class MainPresenter @Inject constructor(private val executor: Executor, private 
         super.detachScreen()
     }
 
-    fun refreshTriggered() {
-        TODO()
+    suspend fun refreshListElement(mal_id: Long) = withContext(Dispatchers.IO) {
+        var listResult = mainInteractor.getMangaByID(mal_id)
+        screen?.showDetails(listResult)
+
     }
-     */
+
+    suspend fun getList(username: String) = withContext(Dispatchers.IO) {
+        var list = mainInteractor.getMangas(username)
+        list.mangas?.let { mainInteractor.saveMangas(it) }
+
+        val result = mainInteractor.getAllManga()
+
+        screen?.loadMangas(result)
+
+    }
+
+    suspend fun saveUser(username: String) = withContext(Dispatchers.IO) {
+        mainInteractor.saveUser(username)
+    }
 }

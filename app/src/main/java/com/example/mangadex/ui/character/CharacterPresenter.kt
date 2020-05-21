@@ -1,22 +1,13 @@
 package com.example.mangadex.ui.character
 
+import android.util.Log
 import com.example.mangadex.interactor.CharacterInteractor
-import com.example.mangadex.model.DummyContent
 import com.example.mangadex.ui.Presenter
-import java.util.concurrent.Executor
-import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-class CharacterPresenter @Inject constructor(private val executor: Executor, private val characterInteractor: CharacterInteractor) : Presenter<CharacterScreen>() {
+class CharacterPresenter constructor(private val characterInteractor: CharacterInteractor) : Presenter<CharacterScreen>() {
 
-    fun showDummyChar(item: DummyContent) {
-        this.screen?.showDummyCharacters(item)
-    }
-
-    fun getDummyChar(item: DummyContent) {
-        showDummyChar(characterInteractor.getDummyCharacters(item))
-    }
-
-    /*
     override fun attachScreen(screen: CharacterScreen) {
         super.attachScreen(screen)
     }
@@ -25,8 +16,18 @@ class CharacterPresenter @Inject constructor(private val executor: Executor, pri
         super.detachScreen()
     }
 
-    fun refreshTriggered() {
-        TODO()
+    suspend fun getList(mangaID: Long) = withContext(Dispatchers.IO) {
+        var list = characterInteractor.getCharacters(mangaID)
+        list.characters?.let { characterInteractor.saveCharacters(mangaID, it) }
+
+        val result = characterInteractor.getAllCharacters()
+
+        Log.d("getlist size",  result.size.toString())
+
+        screen?.loadCharacters(result)
     }
-     */
+/*
+    suspend fun deleteCharacters(){
+        characterInteractor.deleteCharacters()
+    }*/
 }

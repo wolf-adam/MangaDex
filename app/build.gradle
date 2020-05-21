@@ -45,14 +45,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    testImplementation "io.mockk:mockk:1.9.3"
+    testImplementation 'io.mockk:mockk:1.10.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.5.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.0'
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
     implementation 'com.google.code.gson:gson:2.8.6'
@@ -65,14 +65,19 @@ dependencies {
 
     // Dagger2 from
     // https://stackoverflow.com/questions/43756498/dagger-2-component-not-generated?fbclid=IwAR03C_mmX9W79C4-gRS671W0TNpFsKm0rYSmQ-Su5BwPDgxeV_w4mqI61UY
-    api 'com.google.dagger:dagger:2.24'
-    api 'com.google.dagger:dagger-android:2.24'
-    api 'com.google.dagger:dagger-android-support:2.24'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
-    kapt 'com.google.dagger:dagger-compiler:2.24'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
-    kapt 'com.google.dagger:dagger-android-processor:2.24'
+    api 'com.google.dagger:dagger:2.27'
+    api 'com.google.dagger:dagger-android:2.27'
+    api 'com.google.dagger:dagger-android-support:2.27'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.27'
+    kapt 'com.google.dagger:dagger-compiler:2.27'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.27'
+    kapt 'com.google.dagger:dagger-android-processor:2.27'
 
     compileOnly 'javax.annotation:jsr250-api:1.0'
     implementation 'javax.inject:javax.inject:1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
