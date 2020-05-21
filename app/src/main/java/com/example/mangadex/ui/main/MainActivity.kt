@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity(), MainScreen, MainAdapter.Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         injector.inject(this)
 
         mainPresenter.attachScreen(this)
