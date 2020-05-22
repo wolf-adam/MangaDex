@@ -22,12 +22,6 @@ class CharacterPresenter constructor(private val characterInteractor: CharacterI
 
         val result = characterInteractor.getAllCharacters(mangaID)
 
-        Log.d("getlist size",  result.size.toString())
-
         screen?.loadCharacters(result)
-    }
-
-    suspend fun deleteCharacters(){
-        characterInteractor.deleteCharacters()
     }
 }

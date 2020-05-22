@@ -23,7 +23,7 @@ class MainPresenter constructor(private val mainInteractor: MainInteractor) : Pr
 
     suspend fun getList(username: String) = withContext(Dispatchers.IO) {
         var list = mainInteractor.getMangas(username)
-        list.mangas?.let { mainInteractor.saveMangas(it) }
+        list.manga?.let { mainInteractor.saveMangas(it) }
 
         val result = mainInteractor.getAllManga()
 

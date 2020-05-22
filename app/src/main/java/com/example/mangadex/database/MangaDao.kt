@@ -28,9 +28,6 @@ interface MangaDao {
     @Insert(onConflict = REPLACE)
     fun addCharacter(characterEntity: CharactersEntity)
 
-    @Query("DELETE FROM characters")
-    fun deleteCharacterDB()
-
     @Insert(onConflict = REPLACE)
     fun addUser(userEntity: UserEntity)
 }

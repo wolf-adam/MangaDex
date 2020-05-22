@@ -1,22 +1,18 @@
 package com.example.mangadex.interactor
 
-import android.util.Log
 import com.example.mangadex.database.MangaDao
 import com.example.mangadex.database.entities.CharactersEntity
-import com.example.mangadex.interactor.event.GetCharacterEvent
 import com.example.mangadex.model.Character
+import com.example.mangadex.model.CharacterResult
 import com.example.mangadex.network.MangaApi
 import javax.inject.Inject
 
 class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
 
-    suspend fun getCharacters(mangaID: Long) : GetCharacterEvent {
+    suspend fun getCharacters(mangaID: Long) : CharacterResult {
 
-        val event = GetCharacterEvent()
-        val response = mangaApi.getCharacters(mangaID)
-        event.characters = response.characters
+        return mangaApi.getCharacters(mangaID)
 
-        return event
     }
 
     suspend fun getAllCharacters(mangaID: Long) : List<Character> {
@@ -44,9 +40,5 @@ class CharacterInteractor @Inject constructor(private var mangaApi: MangaApi, pr
                 e.printStackTrace()
             }
         }
-    }
-
-    suspend fun deleteCharacters(){
-        mangaDao.deleteCharacterDB()
     }
 }

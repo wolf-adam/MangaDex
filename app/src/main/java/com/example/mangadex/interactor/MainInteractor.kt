@@ -3,20 +3,17 @@ package com.example.mangadex.interactor
 import com.example.mangadex.database.MangaDao
 import com.example.mangadex.database.entities.MangaEntity
 import com.example.mangadex.database.entities.UserEntity
-import com.example.mangadex.interactor.event.GetMangaEvent
 import com.example.mangadex.model.Manga
+import com.example.mangadex.model.MangaResult
 import com.example.mangadex.network.MangaApi
 import javax.inject.Inject
 
 class MainInteractor @Inject constructor(private var mangaApi: MangaApi, private var mangaDao: MangaDao) {
 
-    suspend fun getMangas(username: String) : GetMangaEvent {
+    suspend fun getMangas(username: String) : MangaResult {
 
-        val event = GetMangaEvent()
-        val response = mangaApi.getMangaList(username, "desc")
-        event.mangas = response.manga
+        return mangaApi.getMangaList(username, "desc")
 
-        return event
     }
 
     suspend fun getAllManga() : List<Manga> {
